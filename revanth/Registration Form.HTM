@@ -11,20 +11,31 @@ body {
 }
 
 .header {
+text-align: 10px;
     margin-bottom: 20px;
 }
 
 .header p {
     margin: 0;
+    font-size: 10px;
 }
 
 .section {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
 }
 
-.section h2 {
-    font-size: 14px;
-    margin-bottom: 5px;
+.section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.section h2, .section h3 {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
 }
 
 .section table {
@@ -35,54 +46,7 @@ body {
 .section table td {
     padding: 5px;
     border-bottom: 1px solid #ddd;
-}
-
-.section table td:first-child {
-    width: 30%;
-    white-space: nowrap;
-}
-
-.section table td:last-child {
-    width: 70%;
-}
-
-.checkbox-group {
-    display: inline-block;
-}
-
-.checkbox-group label {
-    margin-right: 10px;
-    display: inline-flex;
-    align-items: center; /* Align checkbox and label vertically */
-}
-
-.checkbox-group input[type="radio"] {
-    margin-right: 3px; /* Space between checkbox and label */
-    vertical-align: middle; /* Align checkbox vertically */
-}
-
-.footer {
-    margin-top: 20px;
-    text-align: right;
-}
-
-/* Adjustments for better visual match */
-.header p {
-    font-size: 10px;
-}
-
-.section h2 {
-    text-align: center;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.section table td {
     vertical-align: top;
-    padding-bottom: 10px;
-}
-
-.section table td:first-child {
     font-weight: normal;
 }
 
@@ -95,44 +59,47 @@ body {
     outline: none;
 }
 
+.checkbox-group {
+    display: inline-block;
+}
+
 .checkbox-group label {
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
     font-size: 11px;
 }
 
-.footer p {
-    font-size: 11px;
-}
-
-/* Add lines between sections */
-.section {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-}
-
-/* Remove line from the last section */
-.section:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
+.checkbox-group input[type="radio"] {
+    margin-right: 3px;
+    vertical-align: middle;
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <p>Capitol Indemnity Corporation</p>
+    <p><b>Capitol Indemnity Corporation</b></p>
     <p>P.O. Box 5900</p>
     <p>Madison, WI 53705</p>
 </div>
 
 <div class="section">
-    <h2><b>SPORTS CLUB / CLAY TARGET QUESTIONNAIRE</b></h2>
-    <p>(Attach to ACORD application)</p>
+  <h2 style="text-align: center;"><b>SPORTS CLUB / CLAY TARGET QUESTIONNAIRE</b></h2>
+    <p style="text-align: center;">  (Attach to ACORD application)</p>
     <table>
-        <tr><td>Applicants Name</td><td><input type="text"></td></tr>
-        <tr><td>Address</td><td><input type="text"></td></tr>
-        <tr><td>City / State / Zip</td><td><input type="text"></td></tr>
+        <tr>
+          <td>Applicants Name</td><td><input type="text"></td>
+          <td>Current Carrier</td><td><input type="text" ></td>
+        </tr>
+        <tr>
+          <td>Address</td><td><input type="text"></td>
+          <td>Phone Number</td><td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>City / State / Zip</td><td><input type="text"></td>
+            <td>Fax Number</td><td><input type="text"></td>
+        </tr>
         <tr><td>Location of Premises (if different)</td><td><input type="text"></td></tr>
         <tr><td>Claims History</td><td><input type="text"></td></tr>
         <tr><td>Additional Insureds</td><td><input type="text"></td></tr>
@@ -142,10 +109,10 @@ body {
 <div class="section">
     <h3>OPERATIONS:</h2>
     <table>
-        <tr><td><b># Of Rifle / Pistol Ranges</td><td><input type="text"></td></tr>
-        <tr><td><b># Of Sporting Clay Stations</td><td><input type="text"></td></tr>
-        <tr><td><b># Of Trap Houses</td><td><input type="text"></td></tr>
-        <tr><td><b># Of Skeet Houses</td><td><input type="text"></td></tr>
+        <tr><td># Of Rifle / Pistol Ranges</td><td><input type="text"></td></tr>
+        <tr><td># Of Sporting Clay Stations</td><td><input type="text"></td></tr>
+        <tr><td># Of Trap Houses</td><td><input type="text"></td></tr>
+        <tr><td># Of Skeet Houses</td><td><input type="text"></td></tr>
     </table>
 </div>
 
@@ -263,6 +230,31 @@ body {
                     <label><input type="radio" name="fenced_gates" value="no"> No</label>
                 </div>
             </td>
-        </tr>
+            <tr>
+    <td>Is perimeter posted "Shooting Range-Danger-Keep Out"?</td>
+    <td>
+        <div class="checkbox-group">
+            <label><input type="radio" name="perimeter_posted" value="yes"> Yes</label>
+            <label><input type="radio" name="perimeter_posted" value="no"> No</label>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Is each range NRA certified?</td>
+    <td>
+        <div class="checkbox-group">
+            <label><input type="radio" name="nra_certified_range" value="yes"> Yes</label>
+            <label><input type="radio" name="nra_certified_range" value="no"> No</label>
+        </div>
+    </td>
+</tr>
+      </tr>
         <tr>
-            <td>
+           <td> 
+           <div class="section">
+    <h3>GENERAL</h2>
+    <p>CGE 340 (03-99)</p>
+    <p style="text-align: center;">  1 of 2</p>
+</div>
+</body>
+</html>
