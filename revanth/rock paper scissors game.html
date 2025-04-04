@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Rock Paper Scissors</title>
   <style>
     body {
@@ -23,15 +24,15 @@
       border: none;
       padding: 10px;
       margin: 10px;
-      border-radius: 50%; /* Circular buttons */
+      border-radius: 50%;
       cursor: pointer;
-      width: 60px; /* Reduced button size */
-      height: 60px; /* Reduced button size */
-      font-size: 16px;
+      width: 80px;
+      height: 80px;
+      font-size: 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     #rockButton {
@@ -52,10 +53,9 @@
     #newGameButton {
       background-color: #e0e0e0;
       color: black;
-      border-radius: 5px; /* Rectangle for New Game */
-      width: auto;
-      height: auto;
+      border-radius: 5px;
       padding: 10px 20px;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -70,10 +70,12 @@
 
     .score {
       margin-top: 10px;
+      font-size: 18px;
     }
     
     .choice-display {
         margin-top:20px;
+        font-size: 18px;
     }
   </style>
 </head>
@@ -89,9 +91,9 @@
     <div class="score">Computer Score: <span id="computerScore">0</span></div>
 
     <div>
-      <button id="rockButton">Rock</button>
-      <button id="paperButton">Paper</button>
-      <button id="scissorsButton">Scissors</button>
+      <button id="rockButton">👊 Rock</button>
+      <button id="paperButton">✋ Paper</button>
+      <button id="scissorsButton">✌️ Scissors</button>
     </div>
     <button id="newGameButton">New Game</button>
   </div>
@@ -114,6 +116,12 @@
       const choices = ['rock', 'paper', 'scissors'];
       const randomIndex = Math.floor(Math.random() * choices.length);
       return choices[randomIndex];
+    }
+
+    function getEmoji(choice) {
+      if (choice === 'rock') return '👊 Rock';
+      if (choice === 'paper') return '✋ Paper';
+      if (choice === 'scissors') return '✌️ Scissors';
     }
 
     function determineWinner(player, computer) {
@@ -141,9 +149,9 @@
       const computerChoice = getComputerChoice();
       const result = determineWinner(playerChoice, computerChoice);
 
-      playerChoiceDisplay.textContent = `PLAYER: ${playerChoice}`;
-      computerChoiceDisplay.textContent = `Computer: ${computerChoice}`;
-      resultDisplay.textContent = `You chose ${playerChoice}, Computer chose ${computerChoice}. ${result}`;
+      playerChoiceDisplay.textContent = `PLAYER: ${getEmoji(playerChoice)}`;
+      computerChoiceDisplay.textContent = `Computer: ${getEmoji(computerChoice)}`;
+      resultDisplay.textContent = `You chose ${getEmoji(playerChoice)}, Computer chose ${getEmoji(computerChoice)}. ${result}`;
 
       updateScore();
     }
